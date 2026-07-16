@@ -16,7 +16,7 @@
 const EMAIL      = "studiogpmar@gmail.com";
 const PUBLIC_KEY = "HYklGfkcF7vt1I2Ym";
 const SERVICEID  = "service_coa7n0s";
-const CONTACTID  = "template_urufu16";
+const CONTACTID  = "template_gc58nov";
 
 //MESSAGE COUNTER LIMITER PARAMETERS
 const MESSAGES_PER_USER = 2;
