@@ -56,13 +56,12 @@ const SOCIAL_NETWORKS_CONTACTS = [
 	["https://whatsapp.com/","whatsapp.webp"]
 ];
 
-
 const MENU_BUTTONS = [
-    [BUSINESS_NAME,"menu-main-button","main.html"],              //PLEASE SKIP THIS ENTRY
+    [BUSINESS_NAME,"menu-main-button","index.html"],              //PLEASE SKIP THIS ENTRY
     
-	["Servizi","services-button","main.html#services"],
-    ["Chi siamo","about-us-button","main.html#about-us"],
-	["Contatti","contact-us-button","main.html#contact-us"],
+	["Servizi","services-button","index.html#services"],
+    ["Chi siamo","about-us-button","index.html#about-us"],
+	["Contatti","contact-us-button","index.html#contact-us"],
 	["Storia","history-button","not-available.html"]             
 ];                                                               //ADD AS MANY ENTRIES AS YOU NEED
 //---------------------------------------------------------------------------------
@@ -438,7 +437,7 @@ class GraphicElementsEnabler{
 					                                                        //insertBefore must be specified, else the menuItems is appended AFTER the jollyButton
 					//assign jolly-button home function
 					jollyButton.innerHTML = "Home";
-					jollyButton.onclick = () =>{window.location.href="main.html";};
+					jollyButton.onclick = () =>{window.location.href="index.html";};
 				  }	
 		);
 		
