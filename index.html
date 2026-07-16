@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
+	
+		<title>Alfa Formazione E Servizi alle imprese - pagina principale</title>
+		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
+        other languages, and emojis. HTML5 supports it -->
+		<meta charset="utf-8"> 
+		
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		
+		<!-- the file containing the custom styling of this page -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/model/DataStructureUtilities.js"></script>
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
+	</head>
+
+    <body>
+	
+		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	    <!-- the main menu is added by the script -->
+		
+	    <div class="parallax-container" data-height_vw="95" data-requiresoverflow_width_px="0" data-canberestored_width_px="0"> 
+		    <img src="assets/images/parallax/layer[0].webp" data-speed="0.35">
+			<img src="assets/images/parallax/layer[1].webp" data-speed="0.7">
+		
+			<div class="parallax-container-title spawn-element">Controllo
+			    <p class="parallax-container-text">Riprendi il timone della tua attività</p>
+			</div>
+		</div>
+	
+		
+		<div id="about-us" class="common-container">
+		    <div class="row">
+				<div class="col-lg-6 spawn-element">
+					<h2 class="add-med-spacing">Chi siamo</h2>
+					<p class="add-min-spacing">
+					La nostra missione è aiutare piccole, medie imprese, e privati, a raggiungere l'efficienza operativa, e il benessere 
+					economico e finanziario, attraverso un'attenta gestione dei beni, della normativa, delle risorse informatiche, e della tassazione. 
+					</p>
+					<p class="add-min-spacing">
+					Ciò è possibile attraverso i nostri professionisti: programmatori, commercialisti, ed esperti di sicurezza 
+					sul lavoro. In una sola azienda, raggruppiamo quel che altrimenti richiederebbe la consultazione di diversi esperti,
+					con tanto tempo e tentativi da dedicare per reperire i contatti, fissare appuntamenti, e sopportare costi di ciascuna 
+					consulenza. 
+					</p>
+					<p class="add-min-spacing">
+					Se sei stanco di vivere nella costante incertezza, avendo la sensazione non avere il controllo o la comprensione sulle 
+					dinamiche di contorno della tua attività, prosegui nella lettura. 
+					</p>
+				</div>
+				
+				<div class="col-lg-6 spawn-element">
+					<img class="common-overlaid-container fluid-element" src="assets/images/about-us.webp">
+				</div>
+			</div>
+		</div>
+	
+		<div id="services" class="common-container">
+		    <div class="add-med-vert-spacing">
+			    <h2>Quali problemi risolviamo</h2>
+			    Questi sono tutti i servizi che offriamo, raggruppati per categoria.<br>
+				Premi su ciascuna voce per saperne di più.
+			</div>
+
+			<div class="common-container row">
+				<div class="col-md-6 extractable">
+					<div class="common-overlaid-container expandable-container add-med-spacing image-background spawn-element" data-image="assets/images/taxes.png">
+						<div class="expandable-container-title extractable-title"><h3>Adempimenti fiscali</h3></div>
+						<div class="expandable-container-content"> 
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Presentazione dichiarazione dei redditi</div>
+								<div class="expandable-container-content"> 
+									<text>example text</text>
+								</div>
+							</div>
+							
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Presentazione di bilancio</div>
+								<div class="expandable-container-content"> 
+									<text>text</text>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			
+				<div class="col-md-6 extractable">
+					<div class="common-overlaid-container expandable-container add-med-spacing image-background spawn-element" data-image="assets/images/regulations.png">
+						<div class="expandable-container-title extractable-title"><h3>Adeguamenti normativi</h3></div>
+						<div class="expandable-container-content"> 
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Sicurezza sul lavoro</div>
+								<div class="expandable-container-content"> 
+									<text>Si tratta di un tema cruciale nelle piccole e medie imprese, dove spesso tali norme vengono applicate
+									in modo insufficiente, con la conseguenza di sanzioni, responsabilità penali, e interruzioni del servizio. 
+									Offriamo consulenza e corsi di formazione per garantire il rispetto alla lettera delle norme vigenti. </text>
+								</div>
+							</div>			
+						</div>
+					</div>
+				</div>	
+			
+				<div class="col-md-6 extractable">
+					<div class="common-overlaid-container expandable-container add-med-spacing image-background spawn-element" data-image="assets/images/management.png">
+						<div class="expandable-container-title extractable-title"><h3>Gestione dei beni</h3></div>
+						<div class="expandable-container-content"> 
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Noleggio autoveicoli</div>
+								<div class="expandable-container-content"> 
+									<text>Con le pressioni delle case produttrici sulla EU, possedere un veicolo sta divenendo giorno dopo giorno,
+									sia per la minor durabilità che per questioni fiscali, una sfida economica difficile da vincere.<br>
+									Perché dunque non avere un piano B? <a href="ltr-landing-page.html">Qui</a> puoi vedere tutte le nostre offerte.<br>
+									Sono tra le più convenienti che puoi trovare, poiché abbiamo le collaborazioni giuste.<br>
+									<a href="ltr-is-it-worth.html">Qui</a> invece puoi avere la spiegazione dettagliata sul noleggio a lungo termine e perché (al momento) conviene.</text>						
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>	
+			
+				<div class="col-md-6 extractable">
+					<div class="common-overlaid-container expandable-container add-med-spacing image-background spawn-element" data-image="assets/images/it.jpg">
+						<div class="expandable-container-title extractable-title"><h3>Informatica</h3></div>
+						<div class="expandable-container-content"> 
+						
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Automatizzazione di processi</div>
+								<div class="expandable-container-content"> 
+									<text>Sai che certe cose si possono fare solo a mano, con una serie di passi. Ma è davvero così? Ed esiste
+									una soluzione migliore? Possiamo fornirti programmi personalizzati.	Così puoi concentrarti su ciò che davvero è importante.</text>
+								</div>
+							</div>
+							
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Creazione di siti internet</div>
+								<div class="expandable-container-content"> 
+									<text>Sebbene i social network ormai sembrino una soluzione facile e veloce per farsi conoscere, 
+									possono risultare insufficienti per una impeccabile presentazione al pubblico, o una chiara comunicazione degli intenti.<br>
+									Sebbene esistano ormai strumenti automatizzati di creazione di siti internet, noi li facciamo 
+									ancora a mano, riga per riga, risultando in maggiore efficienza, personalizzazione delle esigenze, 
+									e bassi costi di gestione annuali, permettendo così una migliore esperienza utente (UX) ad equivalenza di costi.</text>
+								</div>
+							</div>
+						
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Grafica</div>
+								<div class="expandable-container-content"> 
+									<text>Hai bisogno di un logo, o di un particolare elemento grafico, come una locandina?<br>
+									Lo creiamo noi, a mano, in base alle tue richieste. Puoi chiedere una revisione finché non sarai 
+									soddisfatto del risultato. Ti forniamo i file risultanti in formato immagine e/o vettore.</text>
+								</div>
+							</div>
+							
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">Ottimizzazione e riparazione di dispositivi</div>
+								<div class="expandable-container-content"> 
+									<text>Possiedi dispositivi obsoleti, come computer o tecnologia analogica?<br>
+									Ti è giunta l'idea di ridestinarla ad un uso nella tua attività?<br>
+									Con soluzioni innovative, è possibile dare nuova vita anche a ciò che sembra ormai non averne.<br>
+									Se non funziona, lo ripariamo.<br>						
+									L'obsolescenza programmata è in realtà facile da combattere, garantendo sostenibilità, 
+									sia per l'economia che per l'ambiente. </text>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			
+				<!--div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+					<div class="expandable-container-title">Gestione Partita IVA</div>
+					<div class="expandable-container-content"> 
+						<text>text</text>
+					</div>
+				</div-->
+				
+				<!--div class="col-md-6 extractable">
+					<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+						<div class="expandable-container-title extractable-title"><h3>CATEGORY-TITLE</h3></div>
+						<div class="expandable-container-content"> 
+							<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+								<div class="expandable-container-title">ITEM-TITLE</div>
+								<div class="expandable-container-content"> 
+									<text></text>						
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div-->
+				
+			</div>
+		</div>
+		
+		<div id="how-we-work" class="common-container">
+			<h2>Come lavoriamo</h2>
+			Per assisterti al meglio, il nostro flusso di lavoro si compone di quattro passi:
+			
+			
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+				<div class="expandable-container-title">Analisi e ascolto</div>
+				<div class="expandable-container-content"> 
+					<text>Iniziamo conoscendo la tua realtà: obiettivi, punti di forza e difficoltà operative.
+					Solo comprendendo a fondo la tua situazione possiamo proporti soluzioni realmente efficaci.</text>
+				</div>
+			</div>
+			
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+				<div class="expandable-container-title">Pianificazione strategica</div>
+				<div class="expandable-container-content"> 
+					<text>Creiamo un piano d’azione personalizzato che unisce aspetti fiscali, gestionali, informatici 
+					e di sicurezza sul lavoro, per un approccio integrato e coerente.</text>
+				</div>
+			</div>
+			
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+				<div class="expandable-container-title">Implementazione</div>
+				<div class="expandable-container-content"> 
+					<text>I nostri professionisti mettono in pratica la strategia: ottimizzano processi, strumenti e risorse, 
+					coordinandosi per garantirti un risultato concreto e misurabile.</text>
+				</div>
+			</div>
+			
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+				<div class="expandable-container-title">Monitoraggio e supporto continuo</div>
+				<div class="expandable-container-content"> 
+					<text>Non ti lasciamo solo dopo la prima fase.
+					Monitoriamo i risultati e restiamo al tuo fianco per adattare le soluzioni alle nuove esigenze e opportunità.</text>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="testimonials" class="common-container">
+		    <h2>Testimonianze</h2>
+			Ecco come il nostro lavoro ha sinora contribuito a creare un mondo migliore.
+			
+			<div class="row thumbnail add-med-spacing">
+			
+			    <div class="col-md-6 col-lg-4 extractable">
+					<div class="common-overlaid-container expandable-container text-preview add-min-spacing togglable spawn-element">
+						<div class="expandable-container-title extractable-title togglable-enabler font-normal flex-container wrap">
+						    <h3>Centro Equilibrio Psicofisico di Lauretana</h3>
+						    <img src="assets/images/users/CentroEquilibrioPsicofisico.png"></img>
+						</div>
+						<div class="expandable-container-content"> 
+							<text>Avevo un sito obsoleto, logo obsoleto, nessuna presenza sui social, computer lenti e inefficienti. Ero senza un professionista di riferimento.
+							Grazie a voi sono riuscita a riportare ordine ed efficienza nella mia rinascente attività, con un conseguente risparmio di tempo, 
+							e una mente più leggera, da poter dedicare al mio lavoro. 
+							<a href="https://dammartucci.github.io/CentroEquilibrioPsicofisicoLauretana/main.html">Visitami!</a></text>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-lg-4 extractable">
+					<div class="common-overlaid-container expandable-container text-preview add-min-spacing togglable spawn-element">
+						<div class="expandable-container-title extractable-title togglable-enabler font-normal flex-container wrap">
+						    <h3 style="width:70%">My business</h3>
+						    <img src="assets/images/users/generic-user.webp"></img>
+						</div>
+						<div class="expandable-container-content"> 
+							<text>Insert your text here. after 100 characters it's cropped.</text>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-lg-4 extractable">
+					<div class="common-overlaid-container expandable-container text-preview add-min-spacing togglable spawn-element">
+						<div class="expandable-container-title extractable-title togglable-enabler font-normal flex-container wrap">
+						    <h3 style="width:70%">My business</h3>
+						    <img src="assets/images/users/generic-user.webp"></img>
+						</div>
+						<div class="expandable-container-content"> 
+							<text>Insert your text here. after 100 characters it's cropped.</text>
+						</div>
+					</div>
+				</div>
+			
+				
+				
+			</div>
+		</div>
+		
+		<div id="contact-us" class="common-container">
+		    <h2 class="add-med-vert-spacing">Contattaci per saperne di più!</h2>
+		    <div class="row">
+			    <div class="col-md-6">
+			        <div id="inserts-form-here" class="common-overlaid-container add-min-spacing togglable spawn-element"></div>
+				</div>
+				<div class="col-md-6">
+			        <div id="inserts-gmaps-frame-here" class="common-overlaid-container add-min-spacing spawn-element"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- the footer note is added by the script -->
+	
+	</body>
+</html>

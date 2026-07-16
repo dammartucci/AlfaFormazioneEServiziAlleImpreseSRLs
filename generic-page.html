@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
+	
+		<title>Alfa Formazione E Servizi alle imprese - insert page name here</title>
+		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
+        other languages, and emojis. HTML5 supports it -->
+		<meta charset="utf-8"> 
+		
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		
+		<!-- the file containing the custom styling of this page -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		
+		<!--Additional logic and resources-->
+		
+		
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/model/DataStructureUtilities.js"></script>
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
+	</head>
+
+    <body>
+	
+		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	    <!-- the main menu is added by the script -->
+		
+	    <div class="common-container">
+		    <div class="add-hig-vert-spacing"></div>
+		</div>
+	
+		<div class="common-container">
+		<!-- insert your contents here -->
+		
+		    <div class="common-container togglables-xor-container">
+			    <h2>Mutually exclusive choices</h2>
+			    <button class="common-menu-button togglable-button">Choice 1</button>
+				<button class="common-menu-button togglable-button">Choice 2</button>
+				<button class="common-menu-button togglable-button">Choice 3</button>
+				<button class="common-menu-button togglable-button">Choice N</button>
+			</div>
+		
+			<div class="common-overlaid-container expandable-container text-preview add-med-spacing spawn-element">
+				<div class="expandable-container-title font-normal">Title</div>
+				<div class="expandable-container-content"> 
+					<text>Insert your text here. know that you enable or disable the preview of this text by using the text-preview class</text>
+				</div>
+			</div>
+			
+			<div class="row">
+			    <div class="extractable col-md-6">
+					<div class="common-overlaid-container expandable-container text-preview togglable add-med-spacing spawn-element">
+						<div class="expandable-container-title togglable-enabler extractable-title">Tile 1</div>
+						<div class="expandable-container-content"> 
+							<text>Insert your text here. know that you enable or disable the preview of this text by using the text-preview class
+							Note that this item can be toggled only by clicking on the title!</text>
+						</div>
+					</div>
+				</div>	
+				
+				<div class="extractable col-md-6">
+				    <div class="common-overlaid-container expandable-container text-preview togglable togglable-on-sides add-med-spacing spawn-element">
+						<div class="expandable-container-title extractable-title">Tile 2</div>
+						<div class="expandable-container-content"> 
+							<text>Insert your text here. know that you enable or disable the preview of this text by using the text-preview class.
+							Note that this item can be toggled only by clicking on sides.</text>
+						</div>
+					</div>	
+				</div>	
+			</div>
+			
+			<div class="common-overlaid-container browsable-container add-med-spacing">
+			    <h3 class="add-med-spacing">This is a browsable container, where you can cycle all the browsables</h3>
+			    <div class="browsables">
+					<img src="assets/images/cars/generic-car.webp"></img>
+					<img src="assets/images/users/generic-user.webp"></img>
+					<img src="assets/images/events/generic-event.webp"></img>
+				</div>
+				<div class="browsables">
+				    <p>This picture describes a generic car</p>
+				    <p>This picture instead a generic user</p>
+					<p>This picture instead a generic event</p>
+				</div>
+			</div>
+			
+			<div class="row">
+			    <div class="col-md-6">
+			        <div id="inserts-form-here" class="common-overlaid-container togglable spawn-element"></div>
+				</div>
+				<div class="col-md-6">
+			        <div id="inserts-gmaps-frame-here" class="common-overlaid-container spawn-element"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- the footer note is added by the script -->
+	
+	</body>
+</html>

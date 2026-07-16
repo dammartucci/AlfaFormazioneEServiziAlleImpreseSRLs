@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
+	
+		<title>Alfa Formazione E Servizi alle imprese - Introduzione al Noleggio Autoveicoli</title>
+		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
+        other languages, and emojis. HTML5 supports it -->
+		<meta charset="utf-8"> 
+		
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		
+		<!-- the file containing the custom styling of this page -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		
+		<!--Additional logic and resources-->
+		<script src="assets/js/viewmodel/DecentralizedServer.js"></script>
+		<script src="assets/js/viewmodel/DataBaseViewer.js"></script>
+		<script src="assets/js/model/DataStructureUtilities.js"></script>
+		<script src="assets/js/view/DataRenderingUtilities.js"></script>
+		<script src="assets/js/view/SpinnerModel.js"></script>
+		<script src="assets/js/view/SpinnerPicker.js"></script>
+		<script src="assets/js/view/SpinnerPickerFactory.js"></script>
+		<script src="assets/js/view/Survey.js"></script>
+		
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
+	</head>
+
+    <body>
+	
+		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	    <!-- the main menu is added by the script -->
+		
+	    <div class="common-container">
+		    <div class="add-hig-vert-spacing"></div>
+		</div>
+		
+		<div id="display-db" class="common-container"> 
+		    <h2>Sai già che prodotto cerchi, o vuoi comprendere le tue preferenze?</h2>
+		
+			<div class="togglables-xor-container add-hig-vert-spacing"> 			
+				<button id="btn-src" class="common-menu-button togglable-button add-min-vert-spacing spawn-element">So precisamente cosa cerco!</button>
+				<button id="btn-exp" class="common-menu-button togglable-button add-min-vert-spacing spawn-element">Vorrei dare un'occhiata, anzitutto</button>
+				<button id="btn-idk" class="common-menu-button togglable-button add-min-vert-spacing spawn-element">Non so, dimmi da dove cominciare</button>
+			</div>
+			
+			<div id="inserts-search-bar-here-proxy" class="common-container no-background add-hig-vert-spacing"></div>
+		    <div id="inserts-search-bar-here" class="search-bar-pos">Inizializzazione in corso...</div>	
+			<div id="inserts-feed-here" class="add-med-vert-spacing"></div>		
+		</div>
+		
+		<!-- the footer note is added by the script -->
+	</body>
+	
+	<script>
+	    const dv = new CarLTRDataBaseViewer();
+	    const ds = new DecentralizedServer(dv);
+		const sr = new Survey();
+		(async() => {
+		    await dv.loadAdditionalResources();        //must be first, else other tasks may finish earlier
+			await ds.loadArchive("assets/js/model/CarLTRDataBase-it.json");
+			ds.initializeSearchBarAndFeed("inserts-search-bar-here","inserts-feed-here");
+		})();			
+	
+		document.getElementById("btn-src").addEventListener("click",()=>{
+			window.location.href="#inserts-search-bar-here-proxy";
+			alert("Effettua pure la ricerca usando la barra!\nAbilita il campo di ricerca premendo sul suo nome, poi inserisci i valori associati");
+		});
+		document.getElementById("btn-exp").addEventListener("click",()=>{
+			window.location.href="#inserts-search-bar-here";
+		});
+		document.getElementById("btn-idk").addEventListener("click",()=>{
+			(async() => {
+				await sr.loadSurvey("assets/js/model/survey-it.json");		
+                window.location.href="#inserts-search-bar-here-proxy";
+				ds.setDisplayElementsDynamically(false,"inserts-feed-here");
+				let data = await sr.displaySurvey("inserts-feed-here");
+                ds.applyFiltersResolvingType(data);				
+                ds.setDisplayElementsDynamically(true,"inserts-feed-here");	
+				ds.repaint("inserts-feed-here");
+			})();		
+		});
+	</script>
+</html>

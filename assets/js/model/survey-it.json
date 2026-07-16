@@ -1,0 +1,213 @@
+[
+	{
+		"$info" : {
+			"title":"Stai per iniziare il questionario per conoscere le tue preferenze! Mettiti comodo e prenditi qualche minuto.",
+			"text" : "Se sei indeciso su una domanda, puoi lasciarla in bianco."
+		}
+	},
+	{  	
+		"name.brand": {
+			"text":"Hai preferenze sul produttore?",
+			
+			"options":
+				["No",
+				 "Macchine tedesche, sempre!",
+				 "Amo la personalità e l'eleganza inglesi",
+				 "Mi piace l'innovazione, la tradizione, e la genialità dell'Oriente",
+				 "Voglio qualcosa di mai visto, economico, e nuovo"],
+				 
+			"values":
+				[["*"],
+				["Mercedes","Audi","BMW"],
+				["Range Rover","Mini Cooper"],
+				["Toyota","Lexus"],
+				["BYD","Xiaomi","Jaecoo"]]
+		}
+	},
+	{
+		"specs.bodyStyle": {
+			"text":"Quando pensi alla tua auto ideale… come la immagini?",
+			
+			"options":
+				["Agile negli spazi stretti",
+				 "Voglio regalare un'auto a mio figlio, minorenne",
+				 "Comoda e spaziosa per famiglia o viaggi",
+				 "Robusta, per dominare la strada e impressionare",
+				 "Elegante e classica",
+				 "Sfiziosa, per divertirsi",
+				 "Pratica, per lavoro o carico"],
+				 
+			"values":
+				["Compatta",
+				 "Micro car",
+				 "Crossover",
+				 "SUV",
+				 "Berlina",
+				 "Coupé",
+				 "Servizio"]
+		}
+	},
+	{
+		"specs.fuelType" : {
+			"text":"Riguardo l'alimentazione, cosa ti rappresenta di più?",
+			
+			"options":
+				["Voglio qualcosa all'avanguardia ed ecologico",
+				 "Mi piace l'innovazione, ma voglio anche la tradizione",
+				 "Cerco un buon compromesso tra consumi ed economia",
+				 "Cerco la massima economia",
+				 "Preferisco la tradizione",
+				 "Sono aperto a ogni soluzione"],
+				 
+			 "values":
+				["Elettrica",
+				 "Ibrida",
+				 "Diesel",
+				 "GPL",
+				 "Benzina",
+				 "*"]
+		}
+	},
+	{
+		"specs.transmission":{
+
+			"text":"Quando guidi: il rapporto tra te e il cambio",
+			
+			"options":
+			["Sono un purista! Voglio il controllo con il manuale",
+			 "Non voglio distrazioni: viva la tecnologia!",
+			 "Non mi fa differenza"],
+			 
+			"values":
+			["manuale",
+			 "automatico",
+			 "*"]
+		}
+	},
+	{
+		"specs.drive": {
+			"text":"Tu e la trasmissione...",
+			
+			"options":
+			["Non so di cosa parli!",
+			 "Voglio qualcosa che perdoni qualche svista",
+			 "Sono un purista, percepisco bene il mezzo",
+			 "Vivo in un posto impervio, in cui mi servono quattro ruote motrici"],
+			 
+			"values":
+			["*",
+			 "anteriore",
+			 "posteriore",
+			 "integrale"]
+		}
+	},
+	{
+		"wearLevel.productionYear": {
+			"text":"Parlando dell'anno di produzione...",
+
+			"options":
+			["Di cosa parli? Solo NUOVO",
+			 "Due o tre anni sulle spalle... ci sta",
+			 "Le auto che hanno qualche anno sono rodate, e fatte meglio di queste ultime",
+			 "Non fa differenza"],
+
+			"values":
+			[[2024,2025],
+			 [2021,2024],
+			 [2017,2021],
+			 ["*","*"]]
+		}
+	},
+	{	
+		"wearLevel.odometerCountKm" : {
+			"text":"E se ha già qualche chilometro?",
+
+			"options":
+			["Forse non ci siamo capiti... NUOVO!",
+			 "Si, qualche chilometro... basta che non siano 50000",
+			 "Le auto ben fatte si vedono sulla distanza",
+			 "Non fa differenza"],
+
+			"values":
+			[[0,1000],
+			 [1000,35000],
+			 [35000,150000],
+			 ["*","*"]]
+		 }
+	},
+	{
+		"LTRFinancialData.kmPerYear":{
+			"text":"Quanto spesso usi l'auto?",
+
+			"options":
+			["È uno sfizio. Un centinaio di km a settimana",
+			 "Abbastanza, mi muovo specialmente in città",
+			 "Faccio sui 30 km al giorno",
+			 "Mi sposto per lavoro. Faccio sui 60 km al giorno"],
+			 
+			"values":
+			[[0,5000],
+			 [5000,10000],
+			 [10000,20000],
+			 [20000,30000]]
+		}
+	},
+	{
+		"LTRFinancialData.durationMonths":{
+			"text":"Hai intenzione di tenerla per un po' di tempo, o ti piace cambiare?",
+
+			"options":
+			["La vita è breve. Si cambia!",
+			 "Ogni due/tre anni cambio tutto",
+			 "Si, ogni volta è una fatica scegliere qualcosa di nuovo",
+			 "Non lo so. Vedrò più avanti"],
+
+			"values":
+			[[12,24],
+			 [24,48],
+			 [48,60],
+			 [12,24]]
+		}
+	},
+	{
+		"LTRFinancialData.initialPayment": {
+			"text":"Puoi dare un anticipo?",
+
+			"options":
+			["No",
+			 "Fino a 2000€",
+			 "Fino a 5000€",
+			 "Fino a 9000€"],
+
+			"values":
+			[[0,500],
+			 [500,2000],
+			 [2000,5000],
+			 [5000,9000]]
+		}
+	},
+	{
+		"LTRFinancialData.monthlyPrice": {
+			"text":"All’incirca quanto denaro ti avanza ogni mese? Una semplice domanda per scegliere la categoria di prodotto più adatta.",
+			
+			"options":
+			["Sui 300€",
+			 "Sui 600€",
+			 "Sui 900€",
+			 "Sui 1200€"],
+			 
+			"values":
+			[[100,150],
+			 [150,300],
+			 [300,450],
+			 [450,800]]
+		}
+	},
+	{
+		"$info" : {
+			"title" : "È chiaro! Ho selezionato i criteri giusti per te",
+			"end":"Pronto per vedere i risultati?",
+			"text" : "Una volta finito, puoi reimpostare i criteri di ricerca su Menù di ricerca - Reimposta" 
+		}
+    }
+]	

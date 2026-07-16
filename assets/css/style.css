@@ -1,0 +1,496 @@
+/* NOT EVERY MACHINE POSSESSES THIS FONT */
+@font-face {
+  font-family: 'Liberation Sans Narrow';
+  src: local('Liberation Sans Narrow Regular'), url('../fonts/LiberationSansNarrow-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans Narrow';
+  src: local('Liberation Sans Narrow Italic'),url('../fonts/LiberationSansNarrow-Italic.ttf') format('ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Liberation Sans Narrow';
+  src: local('Liberation Sans Narrow Bold'),url('../fonts/LiberationSansNarrow-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* PARAMETERS ABOUT RESIZING ITEMS MINIMUM RESOLUTION, COLORS USED IN THE SCHEME */
+                   /* 1 rem = 16px at reference 1024px*/
+:root{
+	--gradient:     linear-gradient(90deg,#4A32AF,#9E0092);    /*linear-gradient(90deg,#7474bf,#348ac7);*/
+	--gradient-inv: linear-gradient(90deg,#9E0092,#4A32AF);
+	
+	--low-opacity: rgba(255,255,255,.3);
+	--med-opacity: rgba(255,255,255,.6);
+	
+	--scale: 1.57vw;                          /*guarantees actual size of 16px in a screen width of 1024px*/
+	--2px: clamp(0.13rem,0.2vw,100rem);       /*careful: the coefficients behave not linearly in the < 1 region!*/
+	--4px: clamp(0.25rem,0.4vw,100rem);
+	--8px: clamp(0.5rem,0.8vw,100rem);        /*calc(var(--scale)*0.5)*/
+	--16px: clamp(1rem,var(--scale),100rem);
+	--20px: clamp(1.25rem,var(--scale),100rem);
+	--40px: clamp(2.5rem,var(--scale),100rem);
+	--80px: clamp(5rem,var(--scale),100rem);
+	--96px: clamp(6rem,var(--scale),100rem);
+	--120px: clamp(7.5rem,var(--scale),100rem);
+	--200px: clamp(14rem,var(--scale),100rem);
+	--400px: clamp(24rem,var(--scale),100rem);  /*i know, it's 25*/
+	
+	font-size: var(--16px);         
+	
+	--menu-requires-overflow-list: 900;	
+	--menu-can-be-restored-properly: 930;
+	--menu-bounds: var(--8px) var(--8px) var(--8px) var(--20px);
+	--menu-logo-width: clamp(4.3rem,var(--scale), 100rem);       /*70px*/
+	--menu-logo-height: clamp(3.4rem,var(--scale), 100rem);     /*55px*/
+	
+	--default-radius: var(--40px); 
+	--default-thumbnail-size: var(--96px);
+	
+	--default-bounds: var(--20px) var(--40px) var(--20px) var(--40px);
+	--low-bounds: var(--8px) var(--8px) var(--8px) var(--8px);
+	--low-h-bounds: 0px var(--8px) 0px var(--8px);
+	--low-v-bounds: var(--8px) 0px var(--8px) 0px;
+	
+	--med-bounds: var(--20px) var(--20px) var(--20px) var(--20px);
+	--med-h-bounds: 0px var(--20px) 0px var(--20px);
+	--med-v-bounds: var(--20px) 0px var(--20px) 0px;
+	
+	--hig-bounds: var(--80px) var(--80px) var(--80px) var(--80px);
+	--hig-h-bounds: 0px var(--80px) 0px var(--80px);
+	--hig-v-bounds: var(--80px) 0px var(--80px) 0px;
+	
+	--shadow:       0 var(--8px) var(--16px) rgba(0,0,0,1);
+	--shadow-light: 0 var(--8px) var(--16px) rgba(0,0,0,.7);
+	--glowin:       inset 0 0 var(--40px) rgba(255,255,255,.9);
+	--glowin-light: inset 0 0 var(--40px) rgba(255,255,255,.75);
+	
+	--button-shadow:       0 var(--2px) var(--4px) rgba(0,0,0,.7);
+	--button-shadow-light: 0 var(--2px) var(--4px) rgba(0,0,0,.4);
+	--button-glowin:       inset 0 0 var(--20px) rgba(255,255,255,.9);
+	--button-glowin-light: inset 0 0 var(--16px) rgba(255,255,255,.7);
+	--button-glowin-heavy: inset 0 0 var(--40px) rgba(255,255,255,1);
+	--button-glowin-transition: box-shadow 0.5s, transform 0.5s;	
+}
+
+body{
+	font-family: Liberation Sans Narrow;
+}
+
+
+/*necessary exception rules,else some elements get squeezed in small screen widths*/
+@media (max-width: 768px) { 
+    .common-container{
+		padding: 30px 10px 30px 10px !important;   /* reduce left/right padding */
+	}
+	.common-container.common-button{
+		padding: 20px 10px 20px 10px !important; 
+	}
+	.common-overlaid-container{
+        padding: 20px 10px 20px 10px !important;	/*important overrides every possible rule that can be applied by class composition*/	
+    }
+    .common-overlaid-container.common-menu{
+		padding: 10px 10px 10px 20px !important;
+	}	
+	.expandable-container-content{
+		padding: 0 !important;         /*avoid squashing text, in case of nested items*/
+	}
+}
+
+
+/*PARALLAX EFFECTS*/
+.parallax-container{
+    z-index: -1;
+    /* height: 95vw;          /*can be handled by javascript with linear formula, but simply using vw couples height to width: can be set in dataset.height_vw, to allow scalability*/ */
+	contain: layout paint;
+	position: relative;       /*necessary for absolutely positioned elements like the inner layers*/
+}
+.parallax-container-title{
+	position: absolute;       /*Absolute coordinates allow to superimpose things*/   
+   
+    top: 30vw; 
+	left: 1%;	              /*minimum acceptable margins before going in a newline*/
+	right: 1%;
+	
+	color: white;
+	font-size: 15vw;
+	text-shadow: var(--button-shadow);
+	text-align: center;	
+}
+.parallax-container-text{
+	font-size: 5vw;
+}
+
+.table-container {
+    max-height: var(--200px);  
+    overflow-y: auto;               /* enables vertical scroll */
+  
+    border-radius: var(--8px);
+}
+.table-container table {
+	text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+.table-container thead tr th {
+    position: sticky;                   
+    top: 0;                          /* required for sticky */
+	z-index: 2;                      /* keeps header above cells */  
+    
+	background: var(--gradient);     /* give it a bg to cover rows */
+    border-radius: var(--8px);
+    color: white;
+}
+.table-container tr.togglable{
+	border-radius: var(--8px);
+}
+.table-container tr.togglable > td{
+	border-radius: inherit;
+}
+
+
+.image-background{
+    background-size: cover !important;       /* or contain */
+    background-repeat: no-repeat !important;
+    background-position: center !important;	
+}
+
+.common-container{   
+	padding: var(--default-bounds);
+	
+	background: var(--gradient);
+	
+	color: white;
+	text-align: center;
+}
+.common-container.no-background{   	
+	background: transparent;
+}
+
+.common-overlaid-container{
+	border-radius: var(--default-radius);
+	box-shadow: var(--shadow-light);
+    padding: var(--med-bounds);
+	background: var(--low-opacity);	
+}
+.common-overlaid-container img{
+	border-radius: var(--default-radius);
+}
+.common-overlaid-container li{
+	list-style-type: '\2713'; /* '✓'; */
+}
+
+
+.common-button{
+	border: none;
+	border-radius: var(--default-radius);
+	box-shadow: var(--button-shadow-light);
+	
+    padding: var(--med-bounds);
+    
+	font-weight: bold;		
+	position: relative;
+}
+.common-button.camouflaged{          /*the title is a link, and an html button is used, not an anchor*/
+	border-radius: var(--default-radius);
+	
+	box-shadow: none;
+    padding: 0px;
+    
+	background: none;
+}
+.common-button::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	
+	border-top-left-radius: var(--default-radius);
+	border-top-right-radius: var(--default-radius);
+	background: linear-gradient(to top, rgba(255,255,255,0.25), transparent);
+	
+	/*background: url("../images/glass.webp");
+    background-size: 100% 100%;*/
+}
+
+.common-menu-button{
+	border: none;
+	border-radius: var(--default-radius);
+    
+	padding: var(--med-bounds);	
+	
+	background: var(--low-opacity);	
+	color: black;
+	font-weight: bold;
+}	
+
+.common-button:hover,.common-menu-button:hover,.menu-main-button:hover{	
+	box-shadow: var(--button-glowin);
+	transition: var(--button-glowin-transition);
+	
+	background: var(--gradient);
+	color: white;
+}
+.common-button:active,.common-menu-button:active,.menu-main-button:active{	
+	box-shadow: var(--button-glowin-heavy);
+	transition: var(--button-glowin-transition);
+	
+	background: var(--gradient-inv);
+	color: white;
+}
+
+.common-iframe{
+	width: var(--400px);
+    height:	var(--400px);
+	border-radius: var(--default-radius);
+}
+
+.common-scrollpane{
+	height: 100vh;
+	overflow-y: auto;   /* shows scrollbar only when needed */
+    overflow-x: auto;   
+}
+
+.thumbnail img{
+	width: var(--default-thumbnail-size);
+    height: var(--default-thumbnail-size);	
+	border-radius: var(--default-radius);
+}
+
+
+.fluid-element{
+	min-width: 100%;
+	max-width: 100%;
+	height: auto;	
+}
+.antifluid-element{
+	min-height: 100%;
+	max-height: 100%;
+	width: auto;	
+}
+.fluid-square-element{
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;	
+}
+
+
+.flex-container{
+	display: flex; 
+	align-items: center;     /*aligns along the y axis: property working only with flex*/
+	text-align: center;
+	justify-content: center; /*aligns along the x axis*/
+    gap: var(--8px);
+	font-weight: bold;
+}
+.wrap{
+	flex-wrap: wrap;         /*doesn't force the flex layout when space is insufficient, causing overflow*/
+}
+.text-align-center-left{
+	display: flex;
+	align-items: center;
+	text-align: left;
+	justify-content: left;
+    gap: var(--4px);	
+}
+.text-align-center-right{
+	display: flex;
+	align-items: center;
+	text-align: right;
+	justify-content: right;
+    gap: var(--4px);	
+}
+
+/*TOGGLABLE ELEMENTS, THAT REMAIN ACTIVE AFTER CLICK, AND CAN BE DISABLED*/
+.togglable{}
+
+.togglable:hover,.togglable-clicked:hover{
+	box-shadow: var(--shadow),var(--glowin);
+}
+
+.togglable-clicked{
+	box-shadow: var(--shadow-light),var(--glowin-light);
+	background: var(--gradient-inv);
+	color: white;
+}
+
+.togglable-button{}
+
+.togglable-button:hover,.togglable-button.togglable-clicked:hover{
+	box-shadow: var(--button-shadow),var(--button-glowin);
+}
+
+.togglable-button.togglable-clicked{
+	box-shadow: var(--button-shadow),var(--button-glowin-light);
+	background: var(--gradient-inv);
+	color: white;
+}
+
+
+/*UPPER MAIN MENU AND ASSOCIATED OVERFLOW LIST*/
+.common-menu{
+    z-index: 10;
+	
+	display: flex;    /*necessary, else items are listed vertically*/
+	gap: var(--8px);
+	
+	padding: var(--menu-bounds);
+	
+	background: var(--med-opacity);
+
+	font-weight: bold;
+}
+.common-menu img{   /*what to do with images inside any of its children*/
+	width:  var(--menu-logo-width);
+	height: var(--menu-logo-height);
+    border-radius: 0px;	
+}
+
+
+/*ELEMENTS WITH EXPANDABLE CONTENTS*/
+
+.expandable-container{}                 /*no definition so far. just to be used by js querySelector*/
+
+.expandable-container-title{
+	cursor: pointer;
+	font-weight: bold;	
+}
+.expandable-container-content{
+	padding: var(--med-bounds);
+    display: none;
+}
+.expandable-container.expandable-clicked > .expandable-container-content{   /*select ONLY the DIRECT CHILD of expandable-container*/
+    display: inherit;                                                       /*the only way to not break recursive usage*/
+}
+
+.font-normal{
+	font-weight: normal;
+}
+
+.hide{
+	display: none;
+}
+
+                                     /*append a sign after the existing content*/
+/*.expandable-container-title::after{  
+	content: '+';
+	position: absolute;
+    right: 140px;	
+}*/
+
+/*behaviour after a click*/
+/*.expandable-container.clicked .expandable-container-title::after{
+    transform: rotate(45deg);
+}*/
+
+/* CUSTOMIZED ELEMENTS */
+spinner > canvas{
+	--background-image-up: src("assets/images/spinnerpicker/shadow-up.webp");
+	--background-image-dn: src("assets/images/spinnerpicker/shadow-dn.webp");
+	--background: #7419A1;
+	--scope-image: src("assets/images/spinnerpicker/taskbar.webp");
+	--line-color: #444444;
+	--font-color: #ffffff;
+	--font: Arial Narrow;
+	--density:	4;
+	--quality: 1; 
+	
+	width: var(--120px);
+	height: var(--200px);
+	/*border: 1px solid black;*/
+	border-radius: var(--default-radius);
+	box-shadow: var(--shadow-light);
+}
+
+
+/*DYNAMIC LOADING OF CONTENTS*/
+
+.spawn-element{
+    opacity: 0;
+    transform: translateY(var(--80px));
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.spawn-element.observed{
+	opacity: 1;
+	transform: translateY(0);
+}
+
+
+/* SPACING AND POSITIONING */
+.main-menu-pos{
+	position: fixed;
+	top:   var(--20px);
+	left:  var(--20px);
+	right: var(--20px);	
+	/* min-height: var(--80px); */
+}
+.main-menu-overflow-list-pos{
+	z-index: 10;
+	position: fixed;
+	top: var(--120px);
+	left:  var(--20px);
+	right: var(--20px);
+}
+.search-bar-pos {
+	z-index: 9;
+    position: sticky;
+    top: var(--120px);
+}
+
+.put-on-right-side{
+	margin-left: auto;
+}
+.put-on-left-side{
+	margin-right: auto;
+}
+
+.abs-pos-y-mid{
+	position: absolute;
+	bottom: 35%;
+	top: 35%;
+}
+.abs-pos-x-l-side{
+	position: absolute;
+	left: 5%;
+}
+.abs-pos-x-r-side{
+	position: absolute;
+	right: 5%;
+}
+
+.add-min-spacing{
+	margin: var(--low-bounds);
+}
+.add-min-vert-spacing{
+	margin: var(--low-v-bounds);
+}
+.add-min-horz-spacing{
+	margin: var(--low-h-bounds);
+}
+
+.add-med-spacing{
+    margin: var(--med-bounds);
+}
+.add-med-vert-spacing{
+	margin: var(--med-v-bounds);
+}
+.add-med-horz-spacing{
+	margin: var(--med-h-bounds);
+}
+
+.add-hig-spacing{
+	margin: var(--hig-bounds);	
+}
+.add-hig-vert-spacing{
+	margin: var(--hig-v-bounds);
+}
+.add-hig-horz-spacing{
+	margin: var(--hig-h-bounds);
+}

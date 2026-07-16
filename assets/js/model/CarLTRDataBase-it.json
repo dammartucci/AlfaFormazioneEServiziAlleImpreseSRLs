@@ -1,0 +1,335 @@
+[		
+    {
+		"$name": "Menù di ricerca",
+		
+		"$menu" : {
+			"apply" : "Applica",
+			"reset" : "Reimposta",
+			"edTransparency" : "↓ Abilita o disabilita trasparenza cliccando al bordo ↓",
+			"end" : "Questo è tutto ciò che abbiamo al momento!",
+			"empty" : "Non abbiamo risultati corrispondenti 😞"
+		},
+		
+	    "$aux": {
+		    "key": "Codice identificativo",
+		    "available": "Disponibilità"
+		},
+		"name": {
+			"$name": "Marca e modello",
+			"brand": "Marca",
+			"model": "Modello"
+		},
+		"specs": {
+			"$name": "Specifiche tecniche",
+			"displacement": "Cilindrata",
+			"power" : "Potenza",
+			"bodyStyle": "Stile della carrozzeria" ,
+			"fuelType": "Propulsione", 
+			"transmission": "Tipo di transmissione",
+			"drive": "Orientamento"   
+		},
+		"$info": {
+			"textDescription": "Descrizione",
+			"imageDirs": ["images/cars/generic-car.webp"],
+			"location": "Situato a"
+		},
+		"wearLevel": {
+			"$name": "Stato di usura",
+			"productionYear": "Anno di produzione",
+			"odometerCountKm": "Chilometraggio"
+		},
+		"LTRFinancialData": {
+			"$name": "Dati finanziari NLT",
+			"initialPayment": "Anticipo",
+			"kmPerYear": "Massimo numero di km",
+			"durationMonths": "Durata",
+			"monthlyPrice": "Costo"
+		},
+		"$LTROfferSelection" : {
+			"rankingparams":["Costo totale (€)","Costo effettivo a km (€/km)","N.P.V. (€)","Punteggio di convenienza"],
+			"paramsexplain":"Il minimo punteggio di convenienza indica la migliore offerta disponibile per i criteri selezionati",
+			"price": "Costo: ",
+			"currency": "€/mese",
+			"taxinfo": "iva esclusa",
+		    "chooseoffer": "Scegli un'offerta",
+			"bestoffers": "Suggeriscimi le soluzioni migliori" ,
+			"selectoffer": "Seleziona l'offerta che ritieni interessante, poi clicca su",
+			"noofferselected": "Non hai selezionato alcuna offerta!",
+			"iwantthisone": "La voglio!"
+		}
+	},
+	
+	{
+	    "$aux": {
+		    "key": "",
+		    "available": ""
+		},
+		"name": {
+			"brand": "",
+			"model": ""
+		},
+		"specs": {
+			"displacement": "L",
+			"power" : "CV",
+			"bodyStyle": "",
+			"fuelType": "", 
+			"transmission": "",
+			"drive": "" 
+		},
+		"$info": {
+			"textDescription": "",
+			"imageDir": "",
+			"location": ""
+		},
+		"wearLevel": {
+			"productionYear": "",
+			"odometerCountKm": "km"
+		},
+		"LTRFinancialData": {
+			"initialPayment": "€",
+			"kmPerYear": "km/anno",
+			"durationMonths": "mesi",
+			"monthlyPrice": "€/mese"
+		}
+	},
+	
+	{
+	    "$aux": {
+		    "key": ["$text"],
+		    "available": ["si"]
+		},
+		"name": {
+			"brand": ["$text"],
+			"model": ["$text"]
+		},
+		"specs": {
+			"displacement": ["$number",1.0,6.0,0.5,"da","a"],
+		    "power": ["$number",30,600,10,"da","a"],
+			"bodyStyle": ["Berlina","Microcar","Compatta","Crossover","Coupé","Furgone","SUV","Utilità"],
+			"fuelType": ["benzina","gasolio","elettrica","ibrida","gpl","metano"], 
+		    "transmission": ["trazione diretta","CVT"],
+			"drive": ["posteriore","anteriore","integrale"]  
+		},
+		"$info": {
+		    "textDescription": ["$text"],
+			"imageDirs": ["$text"],
+			"location": ["$text"]
+		},
+		"wearLevel": {
+			"productionYear": ["$number",2015,2025,1,"da","a"],
+		    "odometerCountKm": ["$number",0,100000,1000,"da","a"]
+		},
+		"LTRFinancialData": {
+			"initialPayment": ["$numberarray",500,10000,500,"da","a"],
+			"kmPerYear": ["$numberarray",5000,40000,1000,"da","a"],
+			"durationMonths": ["$numberarray",12,60,1,"da","a"],
+			"monthlyPrice": ["$numberarray",100,1000,50,"da","a"]
+		}
+	},
+	
+	{
+	    "$aux": {
+		    "key": "111111",
+		    "available": "si"
+		},
+		"name": {
+			"brand": "Range Rover",
+			"model": "Evoque"
+		},
+		"specs": {
+			"displacement": 2.0,
+			"power": 190,
+			"bodyStyle": "SUV" ,
+			"fuelType": "benzina", 
+			"transmission": "trazione diretta",
+			"drive": "integrale"  
+		},
+		"$info": {
+			"textDescription": "Il tipico SUV per essere allo stesso tempo classici, eleganti, alla moda, e cattivi",
+			"imageDirs": ["assets/images/cars/generic-car.webp"],
+			"location": "Torino"
+		},
+		"wearLevel": {
+			"productionYear": 2024,
+			"odometerCountKm": 0
+		},
+		"LTRFinancialData": {
+			"initialPayment": [0,5000,6000,7000],
+			"kmPerYear":      [10000,15000,20000],
+			"durationMonths": [36,48,60],
+			
+			"#monthlyPrice": [[[765,695,640],[799,729,755],[825,755,699]],
+			                  [[626,590,556],[660,624,591],[686,650,615]],
+							  [[598,570,540],[632,600,575],[658,630,599]],
+							  [[570,549,523],[604,583,558],[630,609,582]]],
+			
+			"monthlyPrice": [523,825]
+		}
+    },
+	
+	{
+	    "$aux": {
+		    "key": "136390",
+		    "available": "si"
+		},
+		"name": {
+			"brand": "Toyota",
+			"model": "Corolla"
+		},
+		"specs": {
+			"displacement": 1.8,
+			"power": 90,
+			"bodyStyle": "compatta" ,
+			"fuelType": "ibrida", 
+			"transmission": "trazione diretta",
+			"drive": "anteriore"  
+		},
+		"$info": {
+			"textDescription": "Un'auto notoriamente affidabile e indistruttibile. Negli Stati Uniti è la più comune, secondo le statistiche",
+			"imageDirs": ["assets/images/cars/generic-car.webp","assets/images/users/generic-user.webp"],
+			"location": "Torino"
+		},
+		"wearLevel": {
+			"productionYear": 2024,
+			"odometerCountKm": 100
+		},
+		"LTRFinancialData": {
+			"initialPayment": [0,2000,3000,4000],
+			"kmPerYear":      [20000,25000,30000],
+			"durationMonths": [36,48,51],
+			
+			"#monthlyPrice": [[["-","-","-"],["-",459,399],[489,"-","-"]],
+			                  [["-","-",399],["-",417,"-"],[433,"-","-"]],
+							  [["-","-",380],["-","-","-"],[405,"-","-"]],
+							  [["-","-",360],["-",375,"-"],[377,"-","-"]]],
+			
+			"monthlyPrice": [360,489]
+		}
+    },
+	
+	{
+	    "$aux": {
+		    "key": "132807",
+		    "available": "si"
+		},
+		"name": {
+			"brand": "Jaecoo",
+			"model": "7"
+		},
+		"specs": {
+			"displacement": 1.5,
+			"power": 347,
+			"bodyStyle": "SUV" ,
+			"fuelType": "ibrida", 
+			"transmission": "trazione diretta",
+			"drive": "anteriore"  
+		},
+		"$info": {
+			"textDescription": "Molto simile a un Range Rover Evoque, anche per il prezzo, ma ibrido e con spirito innovativo cinese. Non si hanno informazioni sufficienti sulla qualità costruttiva, dunque si suggerisce massimo tre anni di noleggio.",
+			"imageDirs": ["assets/images/cars/generic-car.webp","assets/images/users/generic-user.webp"],
+			"location": "Torino"
+		},
+		"wearLevel": {
+			"productionYear": 2025,
+			"odometerCountKm": 0
+		},
+		"LTRFinancialData": {
+			"initialPayment": [0,5000,6000,7000],
+			"kmPerYear":      [10000,15000,20000],
+			"durationMonths": [36,48,60],
+			
+			"#monthlyPrice": [[[765,695,640],[799,729,675],[825,755,699]],
+			                  [[626,590,556],[660,624,591],[686,650,615]],
+							  [[598,570,540],[632,600,575],[658,630,599]],
+							  [[570,549,523],[604,583,558],[630,609,582]]],
+			
+			"monthlyPrice": [523,825]
+		}
+    },
+	
+	{
+	    "$aux": {
+		    "key": "132118",
+		    "available": "si"
+		},
+		"name": {
+			"brand": "Jeep",
+			"model": "Avenger"
+		},
+		"specs": {
+			"displacement": 1.2,
+			"power": 140,
+			"bodyStyle": "SUV" ,
+			"fuelType": "ibrida", 
+			"transmission": "trazione diretta",
+			"drive": "anteriore"  
+		},
+		"$info": {
+			"textDescription": "Una Jeep ibrida o totalmente elettrica? Magari anche per tutte le tasche? Esiste! È la Vendicatrice.",
+			"imageDirs": ["assets/images/cars/generic-car.webp","assets/images/users/generic-user.webp"],
+			"location": ""
+		},
+		"wearLevel": {
+			"productionYear": 2025,
+			"odometerCountKm": 0
+		},
+		"LTRFinancialData": {
+			"initialPayment": [0,2500,3500,4500],
+			"kmPerYear":      [10000,15000,20000],
+			"durationMonths": [36,48,60],
+			
+			"#monthlyPrice": [[[369,369,359],[385,375,369],[405,400,395]],
+			                  [[299,316,317],["-",322,327],[335,347,353]],
+							  [[271,296,300],[287,302,310],[307,327,336]],
+							  [[244,275,284],[260,281,294],[280,306,320]]],
+			
+			"monthlyPrice": [244,405]
+		}
+    },
+	
+	{
+	    "$aux": {
+		    "key": "1000000",
+		    "available": "no"
+		},
+		"name": {
+			"brand": "Sample",
+			"model": "Car"
+		},
+		"specs": {
+			"displacement": 1.0,
+			"power": 10,
+			"bodyStyle": "SUV" ,
+			"fuelType": "ibrida", 
+			"transmission": "trazione diretta",
+			"drive": "anteriore"  
+		},
+		"$info": {
+			"textDescription": "test car",
+			"imageDirs": ["assets/images/cars/generic-car.webp","assets/images/users/generic-user.webp"],
+			"location": ""
+		},
+		"wearLevel": {
+			"productionYear": 2025,
+			"odometerCountKm": 0
+		},
+		"LTRFinancialData": {
+			"initialPayment": [0,5000,6000,7000],
+			"kmPerYear":      [10000,15000,20000],
+			"durationMonths": [36,48,60],
+			
+			"#monthlyPrice": [[["-","-","-"],["-","-","-"],["-","-","-"]],
+			                  [["-","-","-"],["-","-","-"],["-","-","-"]],
+							  [["-","-","-"],["-","-","-"],["-","-","-"]],
+							  [["-","-","-"],["-","-","-"],["-","-","-"]]],
+			
+			"monthlyPrice": ["-","-"]
+		}
+    }
+
+
+
+
+]
+	
+
